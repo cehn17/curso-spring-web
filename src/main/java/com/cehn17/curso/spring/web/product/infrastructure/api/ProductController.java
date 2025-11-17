@@ -10,7 +10,9 @@ import com.cehn17.curso.spring.web.product.application.query.getById.GetProductB
 import com.cehn17.curso.spring.web.product.application.query.getById.GetProductByIdResponse;
 import com.cehn17.curso.spring.web.product.infrastructure.api.dto.ProductDto;
 import com.cehn17.curso.spring.web.product.infrastructure.api.mapper.ProductMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,7 +48,7 @@ public class ProductController implements ProductApi {
     }
 
     @PostMapping("")
-    public ResponseEntity<Void> saveProduct (@RequestBody ProductDto productDto){
+    public ResponseEntity<Void> saveProduct (@RequestBody @Valid ProductDto productDto){
 
         CreateProductRequest request = productMapper.mapToCreateProductRequest (productDto);
         mediator.dispatch(request);
@@ -54,7 +56,7 @@ public class ProductController implements ProductApi {
     }
 
     @PutMapping("")
-    public ResponseEntity<Void> updateProduct(@RequestBody ProductDto productDto){
+    public ResponseEntity<Void> updateProduct(@RequestBody @Valid ProductDto productDto){
 
         UpdateProductRequest request = productMapper.mapToUpdateProductRequest(productDto);
 
