@@ -1,4 +1,6 @@
-package com.cehn17.curso.spring.web.product.domain;
+package com.cehn17.curso.spring.web.product.domain.port;
+
+import com.cehn17.curso.spring.web.product.domain.entity.Product;
 
 import java.util.List;
 import java.util.Optional;

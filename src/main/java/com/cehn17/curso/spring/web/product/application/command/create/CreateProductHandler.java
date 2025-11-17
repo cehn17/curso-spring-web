@@ -1,8 +1,8 @@
 package com.cehn17.curso.spring.web.product.application.command.create;
 
 import com.cehn17.curso.spring.web.common.mediator.RequestHandler;
-import com.cehn17.curso.spring.web.product.domain.Product;
-import com.cehn17.curso.spring.web.product.domain.ProductRepository;
+import com.cehn17.curso.spring.web.product.domain.entity.Product;
+import com.cehn17.curso.spring.web.product.domain.port.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

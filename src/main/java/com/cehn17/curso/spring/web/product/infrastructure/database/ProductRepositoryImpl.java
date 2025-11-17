@@ -1,7 +1,7 @@
 package com.cehn17.curso.spring.web.product.infrastructure.database;
 
-import com.cehn17.curso.spring.web.product.domain.Product;
-import com.cehn17.curso.spring.web.product.domain.ProductRepository;
+import com.cehn17.curso.spring.web.product.domain.entity.Product;
+import com.cehn17.curso.spring.web.product.domain.port.ProductRepository;
 import com.cehn17.curso.spring.web.product.infrastructure.database.entity.ProductEntity;
 import com.cehn17.curso.spring.web.product.infrastructure.database.mapper.ProductEntityMapper;
 import lombok.RequiredArgsConstructor;

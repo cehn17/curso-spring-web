@@ -1,4 +1,4 @@
-package com.cehn17.curso.spring.web.product.domain;
+package com.cehn17.curso.spring.web.product.domain.entity;
 
 import lombok.Builder;
 import lombok.Data;
