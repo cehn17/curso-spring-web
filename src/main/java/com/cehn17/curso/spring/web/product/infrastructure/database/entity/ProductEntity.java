@@ -1,11 +1,10 @@
-package com.cehn17.curso.spring.web;
+package com.cehn17.curso.spring.web.product.infrastructure.database.entity;
 
-import lombok.Builder;
 import lombok.Data;
 
-@Builder
 @Data
-public class Product {
+public class ProductEntity {
+
     private Long id;
     private String name;
     private String description;
@@ -13,3 +12,4 @@ public class Product {
     private String image;
 
 }
+
