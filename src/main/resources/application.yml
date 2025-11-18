@@ -1,3 +1,7 @@
 spring:
   application:
     name: curso-spring-web
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 1MB

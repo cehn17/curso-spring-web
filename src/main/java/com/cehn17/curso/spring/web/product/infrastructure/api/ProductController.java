@@ -8,7 +8,9 @@ import com.cehn17.curso.spring.web.product.application.query.getAll.GetAllProduc
 import com.cehn17.curso.spring.web.product.application.query.getAll.GetAllProductResponse;
 import com.cehn17.curso.spring.web.product.application.query.getById.GetProductByIdRequest;
 import com.cehn17.curso.spring.web.product.application.query.getById.GetProductByIdResponse;
+import com.cehn17.curso.spring.web.product.infrastructure.api.dto.CreateProductDto;
 import com.cehn17.curso.spring.web.product.infrastructure.api.dto.ProductDto;
+import com.cehn17.curso.spring.web.product.infrastructure.api.dto.UpdateProductDto;
 import com.cehn17.curso.spring.web.product.infrastructure.api.mapper.ProductMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -48,15 +50,15 @@ public class ProductController implements ProductApi {
     }
 
     @PostMapping("")
-    public ResponseEntity<Void> saveProduct (@RequestBody @Valid ProductDto productDto){
+    public ResponseEntity<Void> saveProduct(@ModelAttribute @Valid CreateProductDto productDto){
 
-        CreateProductRequest request = productMapper.mapToCreateProductRequest (productDto);
+        CreateProductRequest request = productMapper.mapToCreateProductRequest(productDto);
         mediator.dispatch(request);
         return ResponseEntity.created(URI.create("/api/v1/products/".concat(productDto.getId().toString()))).build();
     }
 
     @PutMapping("")
-    public ResponseEntity<Void> updateProduct(@RequestBody @Valid ProductDto productDto){
+    public ResponseEntity<Void> updateProduct(@RequestBody @Valid UpdateProductDto productDto){
 
         UpdateProductRequest request = productMapper.mapToUpdateProductRequest(productDto);
 
