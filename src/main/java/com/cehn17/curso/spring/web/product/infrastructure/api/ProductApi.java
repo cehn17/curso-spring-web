@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface ProductApi {
 
-    public ResponseEntity<List<ProductDto>> getProducts(@RequestParam(required = false) String pageSize);
+    public ResponseEntity<List<ProductDto>> getAllProducts(@RequestParam(required = false) String pageSize);
 
     public ResponseEntity<ProductDto> getProductById(@PathVariable Long id);
 

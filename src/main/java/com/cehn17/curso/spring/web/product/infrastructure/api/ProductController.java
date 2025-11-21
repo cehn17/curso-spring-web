@@ -33,13 +33,13 @@ public class ProductController implements ProductApi {
     private final ProductMapper productMapper;
 
     @GetMapping()
-    public ResponseEntity<List<ProductDto>> getProducts(@RequestParam(required = false) String pageSize){
+    public ResponseEntity<List<ProductDto>> getAllProducts(@RequestParam(required = false) String pageSize){
 
         log.info("Getting all products");
 
         GetAllProductResponse response = mediator.dispatch(new GetAllProductRequest());
 
-        List<ProductDto> productDtos = response.getProducts().stream().map(productMapper::mapToProduct).toList();
+        List<ProductDto> productDtos = response.getProducts().stream().map(productMapper::mapToProductDto).toList();
 
         log.info("Found {} products", productDtos.size());
 
@@ -52,7 +52,7 @@ public class ProductController implements ProductApi {
         log.info("Getting product with id {}" ,id);
 
         GetProductByIdResponse response = mediator.dispatch(new GetProductByIdRequest(id));
-        ProductDto productDto = productMapper.mapToProduct(response.getProduct());
+        ProductDto productDto = productMapper.mapToProductDto(response.getProduct());
 
         log.info("Found product with id {}" ,id);
 
