@@ -5,6 +5,7 @@ import com.cehn17.curso.spring.web.common.util.FileUtils;
 import com.cehn17.curso.spring.web.product.domain.entity.Product;
 import com.cehn17.curso.spring.web.product.domain.port.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +19,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CreateProductHandler implements RequestHandler<CreateProductRequest,Void> {
 
     private final ProductRepository productRepository;
@@ -25,6 +27,8 @@ public class CreateProductHandler implements RequestHandler<CreateProductRequest
 
     @Override
     public Void handle(CreateProductRequest request) {
+
+        log.info("Received request with id {}", request.getId());
 
         String uniqueFileName = fileUtils.saveProductImage(request.getFile());
 
@@ -36,6 +40,9 @@ public class CreateProductHandler implements RequestHandler<CreateProductRequest
                 .image(uniqueFileName)
                 .build();
         productRepository.upsert(product);
+
+        log.info("Saved product with id {}" ,product.getId());
+
         return null;
 
     }

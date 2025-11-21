@@ -19,10 +19,11 @@ public class GetAllProductHandler implements RequestHandler<GetAllProductRequest
     @Override
     public GetAllProductResponse handle(GetAllProductRequest request) {
 
-
+        log.info("Getting all products");
 
         List<Product> products = productRepository.findAll();
 
+        log.info("Products found: {}", products);
 
         return new GetAllProductResponse(products);
     }
