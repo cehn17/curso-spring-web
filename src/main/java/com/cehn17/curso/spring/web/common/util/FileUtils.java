@@ -24,7 +24,8 @@ public class FileUtils {
 
             uniqueFileName = UUID.randomUUID().toString().concat("-").concat(filename);
 
-            Path path = Path.of("uploads/products/");
+            Path path = Path.of("src/main/resources/products");
+            //Path path = Path.of("uploads/products/");
 
             if(!Files.exists(path)){
                 Files.createDirectories(path);

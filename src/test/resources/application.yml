@@ -2,4 +2,4 @@ spring:
   application:
     name: curso-spring-web
   profiles:
-    active: dev
+    active: test
